@@ -1,0 +1,283 @@
+/* 1800px */
+a {
+   text-decoration: none;
+   color: black;
+}
+
+li {
+   list-style: none;
+   padding: 5px;
+   margin-top: 20px;
+}
+
+* {
+   margin: 0 auto;
+   padding: 0;
+}
+
+.container {
+   width: 100%;
+   margin-right: 0;
+}
+
+header {
+   width: 20%;
+   position: fixed;
+}
+
+
+.main_nav img {
+   width: 50px;
+   height: 50px;
+}
+
+.main_nav span {
+   margin-left: 10px;
+}
+
+div#wrap {
+   display: flex;
+   width: 85%;   
+   position: relative;
+}
+
+div.main {
+   position:absolute;
+   left:20%;
+   border-inline: 1px solid #ccc;
+   width: 55%;
+   margin: 0;
+}
+
+div.side_right {
+   border: 1px solid #ccc;
+   width: 24%;
+   margin-right: 0;
+   height: 300px;
+}
+
+.home, .search, .dm, .event, .profile, .settings{
+   display: flex;
+   flex-direction: row;
+   width: 100px;
+   align-items: center;
+   margin: 0;
+}
+
+div.logo {
+   margin-top: 30px;   
+   margin-block : 55px;
+}
+.main_tit{
+   padding:15px;
+}
+.t_post {
+   width: 100%;
+    height: 100%;
+    padding-block: 10px;
+    border-block: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.post_form{
+   width: 100%;
+    height: 55%;
+    display:flex;
+}
+.post_box{
+   margin: 0;
+    width: 85%;
+     display: flex;
+     flex-direction: column;
+}
+.post_form .post_box > textarea{
+   width: 100%;
+   height: auto;
+   box-sizing: border-box;
+   resize: none;
+   border: none;
+
+   padding: 15px;}
+.post_form .post_box > textarea:focus{
+   outline:none;
+}
+.post_form .post_box > textarea::placeholder {
+  color: #ccc;
+  font-size: 1.8em;
+  
+ 
+}
+.profile_img{
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    padding-top: 20px;
+    margin-right: 3%
+}
+
+.profile_img img{
+   width:50px;
+   height: 50px;
+   border-radius:50%;
+}
+
+
+/* post form button*/
+.btn_1 {
+  position: relative;
+  width: 65px;
+  height: 35px;
+  line-height: 35px;
+  margin-top: 3%;
+  padding: 0;
+  color: black;
+  border: none;
+  background: white;
+  box-shadow: 2px 2px 5px #ccc;
+  border-radius: 20%;
+}
+.btn_1:hover {
+  color: #ff5075;
+  background: transparent;
+   box-shadow:none;
+   border:none;
+}
+.btn_1:before,
+.btn_1:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #ff5075;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.btn_1:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn_1:hover:before,
+.btn_1:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.custom-btn {
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    inset -7px -7px 10px 0px rgba(0,0,0,.1),7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  text-shadow:  2px 2px 3px rgba(255,255,255,.5),
+              -4px -4px 6px rgba(116, 125, 136, .2);
+  outline: none;
+}
+
+
+
+.btn-2 {
+   background-color: #fec4d0eb;
+    color: rgb(255 255 255);
+     border: none;
+  
+}
+.btn-2:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-2:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+
+
+.timeline li{
+   height: 320px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+
+@media ( max-width : 1024px) {
+   .container {
+      width: 20vw;
+      border: 1px solid #ccc;
+   }
+   .main_nav {
+      margin-left: 5vw;
+      width: 300px;
+   }
+   .main_nav img {
+      width: 40px;
+      height: 40px;
+   }
+   .main_nav span {
+      display: none;
+      line-height: 40px;
+      margin-left: 10px;
+   }
+   .t_post {
+      width: 100%;
+       height: 20%;
+       border: 1px solid #ccc;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+   }
+   .post_form{
+      width: 80%;
+       height: 35vh;
+   }
+   .post_form > textarea{
+      width: 100%;
+       height: 100%;
+       resize: none;
+   }
+}
+
+
+
+@media ( max-width : 768px) {
+   
+   .container {
+      width: 20vw;
+      border: 1px solid #ccc;
+   }
+   .main_nav {
+      width: 300px;
+   }
+   .main_nav img {
+      width: 40px;
+      height: 40px;
+   }
+   .main_nav span {
+      display: none;
+      line-height: 40px;
+      margin-left: 10px;
+   }
+   .profile_img {
+    width: 10vw;}
+}
