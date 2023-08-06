@@ -68,15 +68,7 @@ public class TimelineController {
 				postService.saveFile(file, postVo);
 			}
 			System.out.println(postVo.toString());
-//			
-//			UserVo userVo = (UserVo) session.getAttribute("authUser");
-//			String userId = userVo.getUserId();
-//			int userNo = userVo.getUserNo();
-//			
-//			postVo.setUserId(userId);
-//			postVo.setUserNo(userNo);
-//			
-//
+
 
 
 			return "redirect:/home";
