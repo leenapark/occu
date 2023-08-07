@@ -63,6 +63,6 @@
 	</bean>
 	
 	<!-- url매핑-->
-	<mvc:resources mapping="/upload/**" location="file:/Users/soryo/Documents/Im/upload/" />
-	<mvc:resources mapping="/profile/**" location="file:/Users/soryo/Documents/Im/profile/" />
+	<mvc:resources mapping="/upload/**" location="file:C:/javastudy/file_occu/upload/" />
+	<mvc:resources mapping="/profile/**" location="file:C:/javastudy/file_occu/profile/" />
 </beans>

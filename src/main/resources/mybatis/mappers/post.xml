@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="post">
+
+	<!-- post 등록 -->
+    <insert id="insertPost" parameterType="PostVo">
+    
+    <![CDATA[
+			INSERT INTO posts (
+                postNo,
+                userNo,
+                content,
+                createDate,
+                img1
+            )
+            VALUES(
+				    seq_posts.nextval,
+				    #{userNo},
+				    #{content},
+				    sysdate,
+				    file1
+				    
+				    ]]>
+			    <choose>
+					<when test="file1 !=null">
+							   #{file1})
+					</when>
+					<otherwise>
+						        'null')
+					</otherwise>
+				</choose>
+    </insert>
+    
+	<!-- select -->
+    <select id="selectAllPosts" resultType="PostVo">
+    
+    <![CDATA[
+			SELECT  p.postNo,
+			        u.userNo,
+			        u.userId,
+			        p.content,
+			        p.createDate,
+			        p.file1,
+			        u.profileImg
+			FROM posts p, users u
+			WHERE p.userNo = u.userNo
+			ORDER BY createDate DESC	
+		]]>
+      
+    </select>
+    
+    <!-- select one -->
+    
+    <select id="selectPostByNo" resultType="PostVo" parameterType="java.lang.Long">
+	    <![CDATA[
+	        SELECT 
+	            postNo,
+	            id, 
+	            content, 
+	            createDate,
+	            img1
+	        FROM posts p, users u
+			WHERE postNo = #{postNo}
+			ORDER BY createDate DESC	
+	        
+	    ]]>
+	</select>
+    
+    
+    <!-- 기타 필요한 SQL문에 해당하는 매핑 추가 -->
+
+</mapper>
