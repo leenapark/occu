@@ -55,10 +55,15 @@ public class UserController {
 	@RequestMapping(value="/join", method= {RequestMethod.GET, RequestMethod.POST})
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("join: " + userVo.toString());
-		userService.join(userVo);
+
+		int result = userService.join(userVo);
 		
+		if (result == 1) {
+			return	"redirect:/";			
+		} else {
+			return "rediret:/user/join?result=fail";
+		}
 		
-		return	"redirect:/";
 	}
 	
 	

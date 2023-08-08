@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
     <wb-module deploy-name="occudev-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/WebApp" tag="defaultRootSource"/>
@@ -6,5 +7,14 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src\main\resources"/>
         <property name="context-root" value="occudev"/>
         <property name="java-output-path" value="/occudev/build/classes"/>
+=======
+    <wb-module deploy-name="occu-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/WebApp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src\main\java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src\main\resources"/>
+        <property name="context-root" value="occu"/>
+        <property name="java-output-path" value="/occu/build/classes"/>
+>>>>>>> branch 'develop' of https://github.com/leenapark/occu.git
     </wb-module>
 </project-modules>
