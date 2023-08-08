@@ -1,3 +1,4 @@
+/* occu */
 /* 1800px */
 a {
    text-decoration: none;
@@ -16,13 +17,12 @@ li {
 }
 
 .container {
-   width: 100%;
+   width: 75%;
    margin-right: 0;
 }
 
 header {
-   width: 20%;
-   position: fixed;
+   width : 30%;
 }
 
 
@@ -37,23 +37,24 @@ header {
 
 div#wrap {
    display: flex;
-   width: 85%;   
-   position: relative;
+	align-items: flex-start;
+	width: 90%;	
+	height: 100%;
 }
 
 div.main {
-   position:absolute;
-   left:20%;
-   border-inline: 1px solid #ccc;
-   width: 55%;
-   margin: 0;
+   border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	width: 780px;
+	height: 100%;
+	margin: 0;
 }
 
 div.side_right {
    border: 1px solid #ccc;
-   width: 24%;
-   margin-right: 0;
-   height: 300px;
+	width: 400px;
+	margin-left: 0;
+	height: 300px;
 }
 
 .home, .search, .dm, .event, .profile, .settings{
@@ -68,6 +69,9 @@ div.logo {
    margin-top: 30px;   
    margin-block : 55px;
 }
+
+
+
 .main_tit{
    padding:15px;
 }
@@ -221,6 +225,7 @@ div.logo {
 
 
 
+/* 태블릿에 최적화된 예외 CSS 코드*/
 @media ( max-width : 1024px) {
    .container {
       width: 20vw;
@@ -260,6 +265,7 @@ div.logo {
 
 
 
+/* 데스크탑에 최적화된 CSS 코드 */
 @media ( max-width : 768px) {
    
    .container {
@@ -267,6 +273,7 @@ div.logo {
       border: 1px solid #ccc;
    }
    .main_nav {
+   	margin-left: 1vw;
       width: 300px;
    }
    .main_nav img {

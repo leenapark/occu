@@ -12,8 +12,8 @@
 		<![CDATA[
 			INSERT INTO saleform 
 			VALUES (
-			    seq_soleform.nextval,
-			    1,
+			    seq_saleform.nextval,
+			    #{userNo},
 			    #{formPath},
 			    #{formName},
 			    #{formGName},
@@ -27,7 +27,7 @@
 	</insert>
 
 
-	<select id="selectForm" parameterType="String" resultType="com.occu.vo.EventVo">
+	<select id="selectForm" parameterType="String" resultType="EventVo">
 		<![CDATA[
 			SELECT formNo
 			FROM saleform
@@ -35,11 +35,32 @@
 		]]>
 	</select>
 
-	<select id="selectFormInfo" parameterType="String" resultType="com.occu.vo.EventVo">
+	<!-- SELECT * FROM saleform WHERE formNo = #{formNo} -->
+	<select id="selectFormInfo" parameterType="String" resultType="EventVo">
+		<![CDATA[
+			SELECT s.formNo,
+			       e.userNo,
+			       s.formPath,
+			       s.formName,
+			       s.formGName,
+			       s.formGPrice,
+			       s.formQnt,
+			       s.formLmtb,
+			       s.formLmtc,
+			       s.formStockOpen,
+		           e.userId,
+			       e.nickName
+			FROM saleform s, users e
+			WHERE s.formNo = #{formNo}
+		]]>
+	</select>
+	<!-- WHERE s.userNo = e.userNo -->
+	
+	
+	<select id="formList" parameterType="String" resultType="EventVo">
 		<![CDATA[
 			SELECT *
-			FROM saleform
-			WHERE formNo = #{formNo}
+			FROM saleform s, users e
 		]]>
 	</select>
 	

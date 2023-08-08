@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,17 +109,25 @@
 					<span class="form_title">이벤트 계정</span>
 					<a href="${pageContext.request.contextPath}/event/form" class="save">폼 등록하기</a>
 				</div>
+				
 				<p class="month"></p>
+				
+				<div class="imgWriter"></div>	
+				
+				<c:forEach items="${formList}" var="formItem">
 				<div class="seller_list">
 					<div class="seller_info">
-						<a class="seller_img"><img alt="" src=""></a> 
-						<span class="seller_name"></span>
-						<span class="seller_type"></span>
-					</div>
-					<div class="seller_posts">
-						<a class="selling_post"></a> <a class="selling_post"></a>
+						<a href="${pageContext.request.contextPath}/event/order/${formItem.formNo}" class="seller_posts" style="cursor: pointer;">
+							<img alt="" src="">
+							<span class="seller_name">
+								<p>글 제목 : ${formItem.formName}</p>
+								<p>글 작성자 : ${formItem.nickName}</p>
+							</span>
+							<span class="seller_type"></span>
+						</a> 
 					</div>
 				</div>
+				</c:forEach>
 			</div>
 
 		</div>

@@ -1,5 +1,3 @@
-
-
 /* 데스크탑 우선 개발 */
 /* 1800px */
 a {
@@ -25,6 +23,7 @@ li {
 }
 
 .main {
+	width: 100%;
 	overflow-y: auto;
 }
 
@@ -82,7 +81,7 @@ li {
 }
 
 .sub_notice {
-	width: 100%;
+	/* width: 100%; */
 	font-family: Pretendard;
 	font-size: 13px;
 	font-weight: normal;
@@ -174,6 +173,7 @@ input[class='onoff']:checked + label span {
   
 	border: 1px solid #f9f9f9;
 	z-index: 10; */
+	width: 100%;
 }
 
 
@@ -341,9 +341,9 @@ input[class='onoff']:checked + label span {
 	width: 100%;
 	background-color: #fff;
 	padding: 16px;
-	margin-bottom: 10px;
-	display: flex;
-	flex-direction: column;
+	/* margin-bottom: 10px; */
+	/* display: flex;
+	flex-direction: column; */
 }
 
 .goodsAddComponent .title {
@@ -381,6 +381,7 @@ input[class='onoff']:checked + label span {
 .goodsAddComponent .title .sub_notice {
 	margin-bottom: 0;
 	margin-left: 24px;
+	margin-right: 0;
 	font-weight: bold;
 }
 
@@ -394,6 +395,7 @@ input[class='onoff']:checked + label span {
 	border-radius: 10px;
 	border: solid 1px rgba(36, 36, 36, 0.2);
 	background-color: #fff;
+	overflow: auto;
 }
 
 .goodsAddComponent .con li {
@@ -403,6 +405,7 @@ input[class='onoff']:checked + label span {
 	flex-wrap: nowrap;
 	align-items: center;
 	/* margin-bottom: 16px; */
+	justify-content: space-between;
 }
 
 .goodsAddComponent .con li input::placeholder {
@@ -464,6 +467,7 @@ input[class='onoff']:checked + label span {
 .goodsAddComponent .con li .pc {
 	width: auto;
 	height: auto;
+	margin: auto 0;
 }
 
 .goodsAddComponent .con li .pc div {
@@ -476,13 +480,13 @@ input[class='onoff']:checked + label span {
 }
 
 .goodsAddComponent .con li .checkbox {
-	width: 18px;
-	height: 18px;
+	/* width: 18px;
+	height: 18px; */
 	margin-right: 5px;
-	border: solid 0.9px rgba(36, 36, 36, 0.2);
+	/* border: solid 0.9px rgba(36, 36, 36, 0.2);
 	appearance: none;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 5px; */
 }
 
 .goodsAddComponent .con li .checkbox:checked {
@@ -1197,7 +1201,7 @@ input[class='onoff']:checked + label span {
 }
 
 .saveComponent .con .tempSave {
-	width: 40%;
+	width: 100%;
 	margin-right: 6px;
 	padding: 16px;
 	border-radius: 10px;
@@ -1217,7 +1221,6 @@ input[class='onoff']:checked + label span {
 
 .saveComponent .con .save {
 	width: 100%;
-	padding: 16px;
 	border-radius: 10px;
 	background-color: #ff6160;
 	font-family: Pretendard;
@@ -1232,82 +1235,3 @@ input[class='onoff']:checked + label span {
 	text-align: center;
 }
 
-button.numbtn {
-    background-color: #fff;
-    border: 1px solid #d2d2d2;
-    width: 30px;
-    height: 30px;
-    padding: 0px;
-    font-size: 11px;
-    font-family: 'Arial';
-}
-
-/* transformTextComponent */
-.transformTextComponent {
-	width: 100%;
-	background-color: #fff;
-	padding: 10px 16px;
-}
-
-.transformTextComponent .text {
-	width: 100%;
-}
-
-.transformTextComponent .text ul {
-	display: flex;
-	flex-direction: column;
-}
-
-.transformTextComponent .text ul .first {
-	font-family: Pretendard;
-	font-size: 18px;
-	font-weight: bold;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #292929;
-	margin-bottom: 6px;
-}
-
-.transformTextComponent .text ul .second {
-	font-family: Pretendard;
-	font-size: 15px;
-	font-weight: 500;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #292929;
-	margin-bottom: 6px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: center;
-}
-
-.transformTextComponent .text ul .second p {
-	font-family: Pretendard;
-	font-size: 15px;
-	font-weight: bold;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #3e3e3e;
-}
-
-.transformTextComponent .text ul .third {
-	font-family: Pretendard;
-	font-size: 12px;
-	font-weight: 500;
-	font-stretch: normal;
-	font-style: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: left;
-	color: #292929;
-}

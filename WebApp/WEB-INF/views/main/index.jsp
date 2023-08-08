@@ -64,7 +64,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="${pageContext.request.contextPath }/event">
+							<a href="${pageContext.request.contextPath }/event/">
 								<div class="event">
 									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/event_icon.png">
 									<span>

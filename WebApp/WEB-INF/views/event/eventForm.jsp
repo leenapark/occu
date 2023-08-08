@@ -6,17 +6,10 @@
 <!-- viewport 설정 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/occu.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/event.css"
-	type="text/css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/occu.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/event.css" type="text/css">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <!-- jquery import -->
@@ -163,7 +156,7 @@
 				<div class="form_header">
 					<a href="${pageContext.request.contextPath }/event"><i class="bi bi-backspace-fill"></i></a>
 					<span class="form_title">폼 작성하기</span>
-					<a class="save">임시 저장</a>
+					<!-- <a class="save">임시 저장</a> -->
 				</div>
 
 				<div class="components">
@@ -246,20 +239,20 @@
 								<div class="sub_notice">재고를 제외한 상품 정보는 구매 발생 전까지만 수정 가능합니다.</div>
 							</div>
 							<ul class="con">
-								<li>
+								<li style="margin-top:5px;">
 									<div>상품명</div>
 									<div class="limit_content">
 										<input id="goodsName" class="name" type="text" placeholder="상품명을 입력해 주세요" onkeyup="checkText(this)">
 										<div class="limit_length">(0/100)</div>
 									</div>
 								</li>
-								<li>
+								<li style="margin-top:5px;">
 									<div>가격</div>
 									<input id="goodsPrice" class="price" type="number"
 									min="0" inputmode="numeric" pattern="[0-9]*"
 									placeholder="가격을 입력해 주세요" onkeyup="checkNumber(this)">
 								</li>
-								<li class="flex_row">
+								<li style="width:100%; margin-top:5px;">
 									<div class="pc">
 										<div>재고</div>
 										<input id="goodsQuantity" class="count" type="number" min="0"
@@ -867,8 +860,26 @@
 	
 						<div class="saveComponent">
 							<div class="con">
-								<button id="formButton" class="Save">폼만들기</button>
+								<button id="formButton" class="Save" style="border-radius:7px; border: 0px; margin-top: 10px; background-color: #ff5075; border-color: #f0513e; color: #fff; padding: 20px 50px 20px 50px; margin-bottom: 30px;">폼만들기</button>
 							</div>
+							<script>
+							//클릭이벤트
+						        //썸네일 검증
+						        if(!document.querySelector('#thumbnail').value){
+						            return [alert('썸네일을 선택해 주세요.'), 
+								 document.querySelector('.thumbnailComponent').scrollIntoView()];
+						        }
+							   //폼제목 검즘
+						        if(!document.querySelector('#title').value){
+						            return [alert('폼 제목을 입력해 주세요.'), 
+								 document.querySelector('.titleComponent').scrollIntoView()];
+						        }
+						        //판매물품 검증
+						        if(document.querySelector('#goodsList').childElementCount < 1){
+						            return [alert('상품 정보를 입력해 주세요.'),
+								 document.querySelector('.goodsListComponent').scrollIntoView()];
+							    }
+							</script>
 						</div>
 						
 					</form>
