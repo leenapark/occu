@@ -1,5 +1,4 @@
 
-
 document.addEventListener("DOMContentLoaded", function() {
   // DOMContentLoaded 이벤트가 발생했을 때 실행될 코드
   const postButton = document.getElementById("postButton");
@@ -22,8 +21,4 @@ document.addEventListener("DOMContentLoaded", function() {
   contentTextarea.addEventListener("input", checkInputs);
   imageInput.addEventListener("change", checkInputs);
 });
-
-
-
-
 
