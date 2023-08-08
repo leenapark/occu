@@ -5,10 +5,14 @@
     <typeAliases>
     	<typeAlias alias="UserVo" type="com.occu.vo.UserVo"/>
     	<typeAlias alias="PostVo" type="com.occu.vo.PostVo"/>
+    	<typeAlias alias="MessageVo" type="com.occu.vo.MessageVo"/>
+    	<typeAlias alias="EventVo" type="com.occu.vo.EventVo"/>
     </typeAliases>
 
     <mappers>
         <mapper resource="mybatis/mappers/user.xml" />
         <mapper resource="mybatis/mappers/post.xml" />
+        <mapper resource="mybatis/mappers/mss.xml" />
+        <mapper resource="mybatis/mappers/eventSeller.xml" />
     </mappers>
 </configuration>

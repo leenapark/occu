@@ -25,7 +25,7 @@
 
 						</div>
 				</a></li>
-				<li><a href="${pageContext.request.contextPath }/dm">
+				<li><a href="${pageContext.request.contextPath }/messageList.do">
 						<div class="dm">
 							<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/dm_icon.png"> <span> CCUCHAT </span>
 						</div>

@@ -3,28 +3,33 @@
 <mapper namespace="post">
 
 	<!-- post 등록 -->
-    <insert id="insertPost" parameterType="PostVo">
+	<insert id="insertPost" parameterType="PostVo">
     
     <![CDATA[
-			INSERT INTO posts VALUES
-				(
+			INSERT INTO posts (
+                postNo,
+                userNo,
+                content,
+                createDate,
+                file1
+            )
+            VALUES(	
 				    seq_posts.nextval,
 				    #{userNo},
 				    #{content},
 				    sysdate,
-				    
 				    ]]>
-			    <choose>
-					<when test="file1 !=null">
-							   #{file1})
-					</when>
-					<otherwise>
-						        'null')
-					</otherwise>
-				</choose>
-    </insert>
+		<choose>
+			<when test="file1 !=null">
+				#{file1})
+			</when>
+			<otherwise>
+				' ')
+			</otherwise>
+		</choose>
+	</insert>
 
-    <select id="selectAllPosts" resultType="PostVo">
+	<select id="selectAllPosts" resultType="PostVo">
     
     <![CDATA[
 			SELECT  p.postNo,
@@ -38,8 +43,33 @@
 			WHERE p.userNo = u.userNo
 			ORDER BY createDate DESC	
 		]]>
-      
-    </select>
-    <!-- 기타 필요한 SQL문에 해당하는 매핑 추가 -->
+
+	</select>
+	<!-- select one -->
+
+	<select id="selectPostByNo" resultType="PostVo"
+		parameterType="java.lang.Long">
+	    <![CDATA[
+	        SELECT 
+	            p.postNo,
+	            u.userNo,
+	            u.userId, 
+	            p.content, 
+	            p.createDate,
+	            p.file1,
+	            u.profileImg
+	        FROM posts p, users u
+	        WHERE p.userNo = u.userNo
+			AND p.postNo = #{postNo};
+	    ]]>
+	</select>
+
+	<!-- delete -->
+	<delete id="deletePost" parameterType="java.lang.Long">
+	    <![CDATA[
+	        DELETE FROM posts
+	        WHERE postNo = #{postNo}
+	    ]]>
+	</delete>
 
 </mapper>

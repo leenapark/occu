@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 안에 쿼리문을 작성해서 namespace의 그걸 DB와 연결시켜서 적용하겠다 -->
+<mapper namespace="mss">
+	
+	<!-- 메세지 리스트 가져오기 -->
+	<select id="message_list" parameterType="MessageVo" resultType="MessageVo">
+		<![CDATA[
+		    SELECT no, room, send_nick, recv_nick, to_char(send_time, 'yyyy-mm-dd hh24:mi') send_time, to_char(read_time, 'yyyy-mm-dd hh24:mi') read_time, content, read_chk
+		    FROM message
+		    WHERE no IN (select max(no) FROM message GROUP BY room) and (send_nick = #{nick} or recv_nick=#{nick})
+		    ORDER BY no DESC
+		]]>
+	</select>
+	
+	<!-- 메세지 list에서 상대방 profile 가져오기 -->
+	<select id="get_other_profile" parameterType="MessageVo" resultType="String">
+	    <![CDATA[
+		    SELECT profileImg
+		    FROM users
+		    ]]>
+		    <choose>
+		        <when test="send_nick == nick">
+		            where nickName = #{recv_nick}
+		        </when>
+		        <otherwise>
+		            where nickName = #{send_nick}
+		        </otherwise>
+		    </choose>
+	</select>
+	
+	<!-- 안읽은 메세지 갯수 가져오기 -->
+	<select id="count_unread" parameterType="MessageVo" resultType="Int">
+		<![CDATA[
+		    SELECT count(no) 
+		    FROM message
+		    WHERE recv_nick=#{nick} 
+		    AND read_chk=0 
+		    AND room=#{room}
+	    ]]>
+	</select>
+	
+	<!-- 메세지 내용 가져오기 -->
+	<select id="room_content_list" parameterType="MessageVo" resultType="MessageVo">
+		<![CDATA[
+		    SELECT m.no, m.room, m.send_nick, m.recv_nick, to_char(m.send_time, 'yyyy-mm-dd hh24:mi') send_time, m.read_time, m.content, m.read_chk, u.profileImg
+		    FROM message m LEFT OUTER JOIN users u
+		    ON m.send_nick = u.nickName
+		     ]]>
+		    <choose>
+		        <when test="room != 0">
+		            where room=#{room}
+		        </when>
+		        <otherwise>
+		            where (recv_nick = #{recv_nick} and send_nick = #{nick}) or (send_nick = #{recv_nick} and recv_nick = #{nick})
+		        </otherwise>
+		    </choose>
+		    <![CDATA[
+		    ORDER BY m.no ASC
+		    ]]>
+	</select>
+	
+	<!-- 메세지 읽음 처리 -->
+	<update id="message_read_chk" parameterType="MessageVo">
+		<![CDATA[
+		    update message set read_chk=1
+		     ]]>
+		    <choose>
+		        <when test="room != 0">
+		        <![CDATA[
+		            where room=#{room} and read_chk=0 and recv_nick=#{nick}
+		            ]]>
+		        </when>
+		        <otherwise>
+		        <![CDATA[
+		            where send_nick=#{recv_nick} and read_chk=0 and recv_nick=#{nick}
+		            ]]>
+		        </otherwise>
+		    </choose>
+		   
+	</update>
+	
+
+	
+	<!-- 메세지리스트에서 메세지 보내기 -->
+	<!-- otherwise(else)는 예외처리도 동일하게 메세지를 출력하는 방향으로 설정함 -->
+	<insert id="messageSendInlist" parameterType="MessageVo">
+		<choose>
+	        <when test="room != 0">
+	            insert into message values(seq_dm_pk.nextval, #{no}, #{room}, #{send_nick}, #{recv_nick}, systimestamp, systimestamp, #{content}, 0)
+	        </when>
+	        <otherwise>
+	        	insert into message values(seq_dm_pk.nextval, #{no}, #{room}, #{send_nick}, #{recv_nick}, systimestamp, systimestamp, #{content}, 0)
+	        </otherwise>
+	    </choose>
+	</insert>
+	
+	<!-- room 번호 최댓값 구하기 -->
+	<select id="max_room"  parameterType="com.occu.vo.MessageVo" resultType="Int">
+		<![CDATA[
+		   	select max(room)
+		   	from message
+	   	]]>
+	</select>
+	
+	
+	<!-- 메세지 이력이 있는지 검색 -->
+	<!-- 현재 접속한 닉네임에 연결된 메세지의 갯수를 반환 -->
+	<select id="exist_chat" parameterType="com.occu.vo.MessageVo" resultType="Int">
+		<![CDATA[
+	    	select count(no) from message
+	 	    where (recv_nick = #{recv_nick} and send_nick=#{send_nick}) or (send_nick = #{recv_nick} and recv_nick=#{send_nick})
+		]]>
+	</select>
+	
+	<select id="exist_chat_r" parameterType="com.occu.vo.MessageVo" resultType="Int">
+		<![CDATA[
+		   select count(no) from message
+	    where room = #{room}
+	    AND (recv_nick = #{recv_nick} and send_nick=#{send_nick}) or (send_nick = #{recv_nick} and recv_nick=#{send_nick})
+	    ]]>	
+	</select>
+	
+	
+	<!-- 기존 메세지 내역의 room 번호를 가져옴 -->
+	<select id="select_room"  parameterType="com.occu.vo.MessageVo" resultType="String">
+	    <![CDATA[
+			select room from message
+		    where (recv_nick = #{recv_nick} and send_nick=#{send_nick}) or (send_nick = #{recv_nick} and recv_nick=#{send_nick})
+		    limit 0,1
+	    ]]>
+	</select>
+	
+
+	
+</mapper>
