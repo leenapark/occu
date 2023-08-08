@@ -34,7 +34,7 @@
 
 				<div class="logo">
 					<a href="${pageContext.request.contextPath}"> <img
-						src="${pageContext.request.contextPath}/assets/images/main_menu/logo.png">
+						src="${pageContext.request.contextPath}/assets/images/main_menu/logo_icon.png">
 					</a>
 				</div>
 				<p class="text-fontsname">회원가입</p>

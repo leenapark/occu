@@ -23,6 +23,7 @@
 <body>
 
 	<div id="wrap">
+	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 
 
 		<div class="post_detail">
@@ -34,7 +35,7 @@
 						src="${pageContext.request.contextPath}/assets/images/profile/${post.profileImg}"
 						alt="profile image">
 					</a>
-					<div>
+					<div class="detail_info">
 						<a class="m-0" href="${pageContext.request.contextPath}/profile">
 							${post.userId} </a>
 						<p>${post.dateWrite}</p>
@@ -87,7 +88,7 @@
 					</c:when>
 					<c:otherwise>
 						<!-- 이미지 태그로 출력 -->
-						<div class="view">
+						<div class="detail_view">
 							<img class="imgItem"
 								src="${pageContext.request.contextPath}/upload/${post.file1}"
 								alt="Post Image">

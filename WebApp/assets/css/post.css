@@ -9,6 +9,7 @@
 .post_list:hover{
    background: #cccccc24;
 }
+
 .post_con{
    margin: 0;
    
@@ -224,4 +225,16 @@ img.imgItem {
 
 .drop-down__item:hover:before{
    display:block;
+}
+.delete{
+	width:100%;
+	margin: 0;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.delete > img{
+	width:80%;
+	height: 80%;
 }
