@@ -115,4 +115,52 @@
 	</div>
 
 </body>
+
+<script type="text/javascript">
+	const fastapi = (operation, url, params, success_callback, failure_callback) => {
+    let method = operation
+    let content_type = 'application/json'
+    let body = JSON.stringify(params)
+
+    let _url = 'http://43.201.254.244:8000/'+url
+    if(method === 'post') {
+        _url += "?" + new URLSearchParams(params)
+    }
+
+    let options = {
+        method: method,
+        headers: {
+            "Content-Type": content_type
+        }
+    }
+
+    if (method !== 'post') {
+        options['body'] = body
+    }
+
+    fetch(_url, options)
+        .then(response => {
+            response.json()
+                .then(json => {
+                    if(response.status >= 200 && response.status < 300) {  // 200 ~ 299
+                        if(success_callback) {
+                            success_callback(json)
+                        }
+                    }else {
+                        if (failure_callback) {
+                            failure_callback(json)
+                        }else {
+                            alert(JSON.stringify(json))
+                        }
+                    }
+                })
+                .catch(error => {
+                    alert(JSON.stringify(error))
+                })
+        })
+	}
+	
+	export default fastapi
+
+</script>
 </html>
