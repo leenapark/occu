@@ -11,27 +11,24 @@
                 userNo,
                 content,
                 createDate,
-                img1
+                file1
             )
-            VALUES(
+            VALUES(	
 				    seq_posts.nextval,
 				    #{userNo},
 				    #{content},
 				    sysdate,
-				    file1
-				    
 				    ]]>
 			    <choose>
 					<when test="file1 !=null">
 							   #{file1})
 					</when>
 					<otherwise>
-						        'null')
+						        ' ')
 					</otherwise>
 				</choose>
     </insert>
-    
-	<!-- select -->
+
     <select id="selectAllPosts" resultType="PostVo">
     
     <![CDATA[
@@ -48,25 +45,29 @@
 		]]>
       
     </select>
-    
     <!-- select one -->
     
     <select id="selectPostByNo" resultType="PostVo" parameterType="java.lang.Long">
 	    <![CDATA[
 	        SELECT 
-	            postNo,
-	            id, 
-	            content, 
-	            createDate,
-	            img1
+	            p.postNo,
+	            u.userNo,
+	            u.userId, 
+	            p.content, 
+	            p.createDate,
+	            p.file1,
+	            u.profileImg
 	        FROM posts p, users u
-			WHERE postNo = #{postNo}
-			ORDER BY createDate DESC	
-	        
+	        WHERE p.postNo = #{postNo}
 	    ]]>
 	</select>
-    
-    
-    <!-- 기타 필요한 SQL문에 해당하는 매핑 추가 -->
+
+	<!-- delete -->
+	<delete id="deletePost" parameterType="java.lang.Long">
+	    <![CDATA[
+	        DELETE FROM posts
+	        WHERE postNo = #{postNo}
+	    ]]>
+	</delete>
 
 </mapper>

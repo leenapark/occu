@@ -1,6 +1,5 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,29 +7,29 @@
 <!-- viewport 설정 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/occu.css" type="text/css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/post.css" type="text/css">
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script src="${pageContext.request.contextPath }/assets/js/main/button.js"></script>
-<script src="${pageContext.request.contextPath }/assets/js/main/post.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/assets/css/occu.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/assets/css/event.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-<title>O'CCU</title>
-
+<title>O'CCU event</title>
 </head>
 <body>
 	<div id="wrap">
-		
-		<!-- header -->
-    	<header>
-    		<div class="container">
+
+		<header>
+			<div class="container">
 				<nav class="main_nav">
-	    			<div class="logo">
+					<div class="logo">
 	    				<a href="${pageContext.request.contextPath }/home">
 	    					<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/logo_icon.png">
 	    				</a>
 	    			</div>
-    			
+
 
 					<ul>
 						<li>
@@ -65,7 +64,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="${pageContext.request.contextPath }/event">
+							<a href="${pageContext.request.contextPath }/event/">
 								<div class="event">
 									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/event_icon.png">
 									<span>
@@ -100,18 +99,34 @@
 
 				</nav>
 			</div>
-    	</header>
-    	
-    <!-- header -->
-	<div class="main"> 
-	  <div id="feedArea">
-	       <jsp:include page="/WEB-INF/views/main/postForm.jsp"/>
-	       <jsp:include page="/WEB-INF/views/main/timeline.jsp"/>
-	  </div>
-	
-	</div>
-	<div class="side_right"> </div>
-		
+		</header>
+		<!-- header -->
+		<div class="main">
+
+			<div class="event_container">
+				<div class="form_header">
+					<a href="${pageContext.request.contextPath }/index"><i class="bi bi-backspace-fill"></i></a>
+					<span class="form_title">이벤트 계정</span>
+					<a href="${pageContext.request.contextPath}/event/form" class="save">폼 등록하기</a>
+				</div>
+				<p class="month"></p>
+				<div class="seller_list">
+					<div class="seller_info">
+						<a class="seller_img"><img alt="" src=""></a> 
+						<span class="seller_name"></span>
+						<span class="seller_type"></span>
+					</div>
+					<div class="seller_posts">
+						<a class="selling_post"></a> <a class="selling_post"></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- main -->
+		<div class="side_right"></div>
+		<!-- side_right -->
+
 
 	</div>
 

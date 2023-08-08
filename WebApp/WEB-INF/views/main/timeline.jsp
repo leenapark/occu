@@ -24,9 +24,11 @@
 					<div>
 						<a class="m-0" href="${pageContext.request.contextPath}/profile">
 							${post.userId} </a>
-						<p>${post.createDate}</p>
+						<p>${post.dateWrite}</p>
 					
 					</div>
+					<div class= "post_content" style="white-space: pre-line;">${post.content}</div>
+					<!-- // 글내용 -->
 					<!-- 이미지를 표시하는 부분 -->
 					<c:if test="${not empty post.file1 and post.file1.trim() ne ''}">
 					<c:choose>
@@ -49,8 +51,7 @@
 					</c:if>
 					<!-- // 이미지반복영역 -->
 					
-					<div class= "post_content" style="white-space: pre-line;">${post.content}</div>
-					<!-- // 글내용 -->
+					
 				</div>
 				
 				<!-- 삭제 버튼 추가 -->
@@ -71,7 +72,7 @@
 										<input type="hidden" name="postNo" value="${post.postNo}" />
 										<button class="delete" type="submit">
 											<img alt="삭제"
-												src="${pageContext.request.contextPath }/assets/images/main_menu/delete2.png">
+												src="${pageContext.request.contextPath }/assets/images/timeline/delete.png">
 										</button>
 									</form>
 

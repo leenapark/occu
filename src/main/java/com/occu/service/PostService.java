@@ -4,8 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,7 +24,7 @@ public class PostService {
 	private PostDao postDao;
 
 	public void savePost(PostVo postVo) {
-
+		
 		postDao.insertPost(postVo);
 
 	}
@@ -34,7 +33,7 @@ public class PostService {
 	public void saveFile(MultipartFile file, PostVo postVo) {
 		System.out.println("postservice");
 
-		String uploadPath = "/Users/soryo/Documents/Im/upload";
+		String uploadPath = "/javastudy/file_occu/upload/";
 		System.out.println("uploadPath: "+ uploadPath);
 		
 		
@@ -86,5 +85,13 @@ public class PostService {
 
 		return postDao.selectAllPosts();
 	}
-
+	// 포스트 상세페이지
+	 public PostVo getPostByNo(int postNo) {
+	        return postDao.selectPostByNo(postNo);
+	 }
+	 // 포스트 삭제
+	 public void deletePost(Long postNo) {
+    	 System.out.println("deletePost �޼��� ȣ���. postNo: " + postNo);
+        postDao.deletePost(postNo);
+    }
 }

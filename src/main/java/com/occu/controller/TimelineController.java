@@ -1,6 +1,7 @@
 package com.occu.controller;
 
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -52,7 +53,6 @@ public class TimelineController {
 			UserVo userVo = (UserVo) session.getAttribute("authUser");
 			int userNo = userVo.getUserNo();
 			
-			
 			postVo.setUserNo(userNo);
 			
 			System.out.println("ctr postVo: " + postVo);
@@ -74,15 +74,20 @@ public class TimelineController {
 		@RequestMapping(value = "/detail/{postNo}", method = RequestMethod.GET)
 	    public String showDetail(@PathVariable("postNo") int postNo, Model model) {
 			System.out.println("timeline ctr : " + postNo);
-//	        PostVo post = postService.getPostByNo(postNo);
+	        PostVo post = postService.getPostByNo(postNo);
 
-
-//	        model.addAttribute("post", post);
+	        model.addAttribute("post", post);
 
 	        return "main/detail";
 	    }
 		
-		
+		// post delete
+		@RequestMapping(value = "/delete", method = RequestMethod.POST)
+		public String deletePost(@RequestParam("postNo") Long postNo) {
+		    System.out.println("deletePost. postNo: " + postNo);
+		    postService.deletePost(postNo);
+		    return "redirect:/home";
+		}
 		
 		
 		
