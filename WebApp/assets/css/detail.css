@@ -1,0 +1,66 @@
+.delete{
+	width:100%;
+	margin: 0;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.delete > img{
+	width:80%;
+	height: 80%;
+}
+.post_detail {
+    position: absolute;
+    left: 20%;
+    border: 1px solid #ccc;
+    width: 55%;
+}
+.detail_view{
+	margin-inline: 5%;
+	margin-bottom:5%;
+	margin-top:1%;
+}
+.detail_profile{
+	display: flex;
+    align-items: center;
+    margin-left: 5%;
+  
+}
+.post_tit{
+	padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.detail_con_wrap{
+	margin-left: 5%;
+}
+.detail_top {
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+}
+.detail_menu{
+	margin-right: 3%;
+    margin-top: 3%;
+}
+.detail_profile .profile_img{
+	width:45px;
+	height: 45px;
+	padding:0;
+}
+.detail_profile a{
+	margin: 0;
+}
+.detail_profile > div{
+	margin: 0;
+    margin-left: 15px;
+}
+.detail_profile:late-child{
+justify-content: flex-end;
+}
+.detail_info{
+	display:flex;
+}
+.detail_info p {
+	margin-left:10px;
+}
