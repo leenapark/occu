@@ -21,13 +21,15 @@
 <body>
 	<div class="container">
 
-		
+			<div class="logo_mp4">
+				<img alt="" src="${pageContext.request.contextPath}/assets/upload/occu_logo.gif">
+			</div>
 			
 			<!-- loginbox -->
 			<div class="loginbox">
 					
 				<form class="login_form" name="loginForm" action="${pageContext.request.contextPath}/login">
-					<p>LOGIN</p>	
+					<p>O'CCU</p>	
 					<span class="id"> 
 						<input type="text" name="email" class="inputbox" placeholder="E-mail를 입력해주세요">
 					</span> 
@@ -47,28 +49,10 @@
 				</ul>	
 				</form>
 
-
-				
-
 			</div>
 			
 			 
-						
-			
-			<!-- loginbox -->
-
-
-			
-			<%-- <!— login social —>
-			<a id="reauthenticate-popup-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=8d1281e9c14b86fda8651f0b64c4769e&redirect_uri=http://localhost:8088/closet/user/kakao&response_type=code">
-			<!— <a id="reauthenticate-popup-btn" href="https://kauth.kakao.com/oauth/authorize?client_id=8d1281e9c14b86fda8651f0b64c4769e&redirect_uri=http://61.79.192.4:2405/closet/user/kakao&response_type=code"> —>
-			  <img
-			    src="${pageContext.request.contextPath}/assets/images/kakao_login.png"
-			    width="222"
-			  />
-			</a>
-			<p id="reauthenticate-popup-result"></p>
-			<!— login social —> —--%>
+				
 			
 
 
@@ -82,3 +66,4 @@
 
 	</div>
 </body>
+</html>

@@ -30,7 +30,7 @@
 							<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/dm_icon.png"> <span> CCUCHAT </span>
 						</div>
 				</a></li>
-				<li><a href="${pageContext.request.contextPath }/event">
+				<li><a href="${pageContext.request.contextPath }/event/">
 						<div class="event">
 							<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/event_icon.png"> <span> EVENT </span>
 						</div>

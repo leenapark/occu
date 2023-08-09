@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +9,10 @@
 <!-- viewport 설정 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/occu.css"
-	type="text/css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/event.css"
-	type="text/css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/occu.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/event.css" type="text/css">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <!-- jquery import -->
@@ -26,8 +20,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- bootstrap import -->
 
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/formGo.js"></script> --%>
-<!-- java script -->
 <script type="text/javascript">
 	function checkNumber(e) {
 	  const text = /[^0-9]/g;
@@ -80,8 +72,6 @@
 
 		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		<!-- header -->
-		
-		
 		<div class="main">
 
 			<div class="event_container">
@@ -812,10 +802,5 @@
 	</div>
 
 </body>
-
-
-<!-- java script (+ajax) -->
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/formGo.js"></script> --%>
-
 
 </html>

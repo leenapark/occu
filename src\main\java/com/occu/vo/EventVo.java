@@ -5,8 +5,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class EventVo {
 	
 	
+
+	//0804 sailform data vo
 	private int formNo;    //not null unique
-	private int eventNo;
 	private MultipartFile formFile;
 	private String formPath;
 	private String formName;
@@ -16,6 +17,12 @@ public class EventVo {
 	private String formLmtb;
 	private int formLmtc;
 	private String formStockOpen;
+	// 0807 add user tables cols
+	private int userNo;
+	private String nickName;
+	private String userId;
+	// 0808 add order data vo (진행중)
+	private int orderNo;
 	
 	
 	
@@ -25,13 +32,30 @@ public class EventVo {
 
 
 
-	// g/s
-	public int getEventNo() {
-		return eventNo;
+
+	// g/s	
+	public String getNickName() {
+		return nickName;
+	}
+	
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	
+	public String getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-	public void setEventNo(int eventNo) {
-		this.eventNo = eventNo;
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 	
 	public String getFormPath() {
@@ -124,14 +148,14 @@ public class EventVo {
 	// method
 	@Override
 	public String toString() {
-		return "EventVo [formNo=" + formNo + ", formPath=" + formPath + 
+		return "EventVo [formNo=" + formNo + ", userNo=" + userNo + ", formPath=" + formPath + 
 				", formFile=" + formFile + ", formName=" + formName + 
 				", formGName=" + formGName + ", formGPrice=" + formGPrice + 
 				", formQnt=" + formQnt + ", formLmtb=" + formLmtb + 
 				", formLmtc=" + formLmtc + ", formStockOpen=" + formStockOpen + 
+				", nickName=" + nickName + ", userId=" + userId +
 				"]";
 	}
 	
 	
 }
-

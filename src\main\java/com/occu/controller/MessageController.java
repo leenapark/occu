@@ -28,12 +28,13 @@ public class MessageController {
 	// 메세지 목록
 	@RequestMapping(value = "/messageList.do")
 	public String message_list(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpSession session) {
-		// System.out.println("현대 사용자 nick : " + session.getAttribute("nick"));
+
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		System.out.println("ctr(MC): " + authUser);
-		// String nick = (String) session.getAttribute("nick");
 		System.out.println("ctr(MC): " + authUser.getNickName());
+		
 		MessageVo to = new MessageVo();
+		
 		// nick 값을 메세지 객체 to에 입력
 		to.setNick(authUser.getNickName());
 		System.out.println("ctr(MC): " + to);
@@ -50,7 +51,7 @@ public class MessageController {
 	// 메세지 목록
 	@RequestMapping(value = "/messageAjaxList.do")
 	public String message_ajax_list(@ModelAttribute UserVo userVo, HttpServletRequest request, HttpSession session) {
-		// System.out.println("현대 사용자 nick : " + session.getAttribute("nick"));
+
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		String nick = (String) authUser.getNickName();
 		System.out.println("ctr(m_a_l, nick): " + nick);
@@ -71,9 +72,9 @@ public class MessageController {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		String nick = (String) authUser.getNickName();
 		System.out.println("ctr(m_c_t, nick): " + nick);
-		/* System.out.println("nick : " + session.getAttribute("nick")); */
+
 		int room = Integer.parseInt(request.getParameter("room"));
-		/* System.out.println("req: " + request.getParameterNames()); */
+
 		System.out.println("ctr(m_c_t, room) : " + room);
 		MessageVo to = new MessageVo();
 		to.setRoom(room);

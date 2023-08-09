@@ -4,7 +4,10 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,25 +23,21 @@ public class EventService {
 	private EventDao eventDao;
 	
 
-	
+	// form data store (insert)
 	public int restore(MultipartFile file, EventVo eventVo) {  //file을 다루는 multipartFile과 Vo 매개변수 선언
 
 		// insert boolean string
 		if (eventVo.getFormLmtb() == null) {
-			eventVo.setFormLmtb("0");
-		} else {
-			eventVo.setFormLmtb("1");
+			eventVo.setFormLmtb("off");
 		}
 		if (eventVo.getFormStockOpen() == null) {
-			eventVo.setFormStockOpen("0");
-		} else {
-			eventVo.setFormLmtb("1");
+			eventVo.setFormStockOpen("off");
 		}
 		
 		System.out.println("EventService restore1: " + file.getOriginalFilename());
 		
 		// db 저장할 정보 수집
-		String saveDir = "/Users/soryo/Documents/Im/upload/";
+		String saveDir = "/Users/wangyeseul/javaStudy/upload/";
 		
 		// 오리지널 파일이름
 		String orgName = file.getOriginalFilename();
@@ -58,8 +57,7 @@ public class EventService {
 		
 		
 		// 서버 하드 디스크 저장
-		try {
-			System.out.println("get here");
+		try {System.out.println("get here");
 			
 			byte[] fileData = file.getBytes();
 			System.out.println("fileData: " + fileData);
@@ -71,8 +69,7 @@ public class EventService {
 			System.out.println("bos: " + bos);
 			
 			bos.write(fileData);
-			System.out.println("done here");
-			
+			System.out.println("done here");			
 			bos.close();
 			
 		} catch (IOException e) {
@@ -80,35 +77,57 @@ public class EventService {
 		}
 		
 		// db 저장
-
 		eventVo.setformPath(saveName);
-		
 		System.out.println("EventService restore2: " + eventVo);
-		
 
 		return eventDao.insertFormData(eventVo);
 	}
 
+	// form number data select (get url)
 	public EventVo selectForm(EventVo eventVo) {
-		
 		System.out.println("EventService selectForm1: " + eventVo);
-		
 		EventVo vo = eventDao.selectFormNo(eventVo);
-
 		System.out.println("EventService selectForm2: " + eventVo);
 		
 		return vo;
 	}
 	
+	// form data select (go forminfo)
 	public EventVo selectFormInfo(int formNo) {
-		
 		System.out.println("EventService selectFormToInfo1: " + formNo);
-		
 		EventVo dataVo = eventDao.selectFormData(formNo);
-
 		System.out.println("EventService selectFormToInfo2: " + dataVo);
 		
 		return dataVo;
+	}
+	
+	
+	
+	// form to order (insert) (진행중)
+//	public String orderGo (EventVo eventVo) {
+//		
+//		// insert boolean string
+//		if (eventVo.getFormLmtb() == null) {
+//			eventVo.setFormLmtb("off");
+//		}
+//		if (eventVo.getFormStockOpen() == null) {
+//			eventVo.setFormStockOpen("off");
+//		}
+//		
+//		System.out.println("EventService orderGo1: " + eventVo);
+//		
+//		return "";
+//	}
+	
+	
+	
+	// form number data select (get url)
+	public List<EventVo> formList() {
+		System.out.println("EventService formList1: ");
+		List<EventVo> voList = eventDao.formList();
+		System.out.println("EventService formList2: " + voList);
+		
+		return voList;
 	}
 	
 	

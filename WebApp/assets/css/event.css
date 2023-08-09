@@ -1,4 +1,4 @@
-@charset "UTF-8";
+
 
 /* 데스크탑 우선 개발 */
 /* 1800px */
@@ -650,7 +650,7 @@ input[class='onoff']:checked + label span {
 	flex-direction: column;
 }
 
-.goodsListComponent .title {
+/* .goodsListComponent .title {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -658,7 +658,7 @@ input[class='onoff']:checked + label span {
 	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
-}
+} */
 
 .goodsListComponent .title .left {
 	width: 100%;
@@ -666,6 +666,11 @@ input[class='onoff']:checked + label span {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
+}
+
+/* 상품 갯수 접기 아이콘 */
+i.bi.bi-chevron-down.arrow_icon {
+	margin-left: 10px;
 }
 
 .goodsListComponent .title .left .goods_icon {
@@ -690,7 +695,6 @@ input[class='onoff']:checked + label span {
 }
 
 .goodsListComponent .title .left .sub {
-	width: 20%;
 	font-family: Pretendard;
 	font-size: 16px;
 	font-weight: bold;
@@ -700,6 +704,8 @@ input[class='onoff']:checked + label span {
 	letter-spacing: normal;
 	text-align: left;
 	color: #9b9b9b;
+	/* 상품 총 갯수 */	
+	margin-left: 200px;
 }
 
 .goodsListComponent .title .left .sub .count {
@@ -1194,6 +1200,7 @@ input[class='onoff']:checked + label span {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
+	width:400px;
 }
 
 .saveComponent .con .tempSave {
@@ -1215,7 +1222,7 @@ input[class='onoff']:checked + label span {
 	text-align: center;
 }
 
-.saveComponent .con .save {
+.saveComponent .con button.save {
 	width: 100%;
 	padding: 16px;
 	border-radius: 10px;
@@ -1310,4 +1317,42 @@ button.numbtn {
 	letter-spacing: normal;
 	text-align: left;
 	color: #292929;
+}
+
+.components .pay_info {
+    width: 413px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+    background-color: #fff;
+    margin: 0 auto;
+    margin-bottom: 18px;
+    margin-top: 200px;
+    text-align: center;
+    height: 200px;
+    font-weight: bold;
+}
+
+.components .pay_info .pay_btn {
+    background-color: #fff;
+    border: 1px solid #d2d2d2;
+    width: 150px;
+    height: 50px;
+    padding: 0px;
+    font-size: 11px;
+    margin: 0px 20px;
+    font-family: 'Arial';
+}
+
+.component .pay_info span {
+    font-weight: bold;
+}
+
+.pay_title {
+ 	padding-top: 50px;
+}
+
+.pay_btn_group {
+    margin-top: 40px;
 }

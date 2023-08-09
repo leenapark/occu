@@ -1,5 +1,96 @@
-@charset "UTF-8";
+*{
+	outline: none;
+}
+body{
+  background: linear-gradient(-45deg, #fd6394, #e73c7e, #e01b5b, #fca3c2);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+ 
+}
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+label{
+	display:none;
+}
+#agreementDivArea label{
+	display:block;	
+	color: white;
+    text-shadow: 1px 1px 2px #ccc;
+}
+
+
+/* box */
+
+.box {
+  position: relative;
+}
+.box .square {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  animation: square 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+@keyframes square {
+  0%, 100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+.box .square:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 20px;
+  right: 470px;
+}
+.box .square:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 400px;
+  left: 400px;
+  z-index: 2;
+}
+.box .square:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  top: 80px;
+  right: 400px;
+  z-index: 2;
+}
+.box .square:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  top: 150px;
+  left: 420px;
+}
+.box .square:nth-child(5) {
+  width: 50px;
+  height: 50px;
+  top: 500px;
+    left: 370px;
+}
+.box .square:nth-child(6) {
+  width: 85px;
+  height: 85px;
+  top: 120px;
+  right: 450px;
+  z-index: 2;
+}
 
 /*****************회원가입*********************/
 
@@ -12,6 +103,80 @@ button {
     line-height: 1.5;
     background: none;
     outline: none;
+}
+
+/* 회원가입 버튼 */
+
+#joinBtnDiv button{
+	
+  background: transparent;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 2em;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+	
+}
+#joinBtnDiv button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+#joinBtnDiv button:focus {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* placeholder */
+::-moz-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+:-ms-input-placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+::placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size:0.7em;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+form#joinForm input{
+  background: transparent;
+  width: 100%;
+  padding: 1em;
+
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5000px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* h1 가리기 */
@@ -30,12 +195,6 @@ button {
     box-sizing: border-box;
     position: relative;
     margin: 0 auto;
-}
-
-/* 칸칸이 간격 */
-.user .form-group {
-	padding: 10px 5px 10px 5px;
-	text-align: left;
 }
 
 /* 사이트 로고 사이즈 조절 */
@@ -74,7 +233,17 @@ header.user-header {
 }
 
 form#joinForm {
-	width: 300px;
+background: rgba(255, 255, 255, 0.3);
+  padding: 1.3em 3.3em;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
 }
 
 
@@ -506,7 +675,7 @@ button {
 
 /* 칸칸이 간격 */
 .user .form-group {
-	padding: 10px 5px 10px 5px;
+	padding-bottom: 10px;
 	text-align: left;
 }
 
@@ -543,10 +712,13 @@ header.user-header {
 .user .text-fontsname {
 	text-align: center;
 	font-size: 20px;
+	color: white;
+    text-shadow: 1px 1px 2px #ccc;
 }
 
 form#joinForm {
-	width: 300px;
+	width: 26%;
+	margin-top: 3%; 
 }
 
 
@@ -585,9 +757,11 @@ form#joinForm {
 }
 
 .user .n-validation {
-	font-size: 12px;
-    color: #ff0000;
+	    font-size: 10px;
+    color: white;
     margin-top: 7px;
+    margin-bottom: 0;
+    margin-left: 15px;
 }
 
 /* 통과 css */
@@ -628,8 +802,21 @@ form#joinForm {
     margin: 0;
     padding: 0;
     list-style: none;
+    border-radius: 20px;
+    background: #ffffff63;
 }
 
+ #emailDomainList li:nth-child(1):hover{
+ 	
+ 	border-radius: 20px 20px 0 0;
+ }
+#emailDomainList li:hover{
+	background: #ffffff78;
+}
+
+#emailDomainList li:nth-child(5):hover{
+	border-radius: 0 0 20px 20px;
+}
 .n-form-layer.is-active .d-input {
     background-color: #e5e5e5;
     border-color: #aaa;
@@ -656,6 +843,7 @@ form#joinForm {
     font-size: 16px;
     text-align: left;
     padding: 12px 0px;
+    margin-left: 10px;
 }
 
 .n-form-layer.is-active .layer button > em {
@@ -942,9 +1130,24 @@ ul {
 	margin: 10px 0px;
 }
 
+form#joinForm #chk-agree{
+	background: none;
+    border: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
 
+.chk_agree {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
-
-
-
+.chk_agree input#chk-agree { 
+	width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+#agreementDivArea{
+	font-size: 0.9em;
+}

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -11,12 +10,9 @@
 <title>O'CCU sign up</title>
 
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/user.css"
-	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user.css" type="text/css">
 <!--user css-->
 
 
@@ -24,37 +20,27 @@
 
 <body>
 	<div id="wrap">
-		<h1 class="n-hidden">O'CCU 회원가입</h1>
+		<div class="box">
+			<div class="square" style="-i: 0;"></div>
+			<div class="square" style="-i: 1;"></div>
+			<div class="square" style="-i: 2;"></div>
+			<div class="square" style="-i: 3;"></div>
+			<div class="square" style="-i: 4;"></div>
+			<div class="square" style="-i: 5;"></div>
+		</div>
+
 
 		<div class="form-area user">
 
+			<form id="joinForm" action="${pageContext.request.contextPath}/user/join" method="post">
 
-			<!-- header -->
-			<header class="user-header">
-
-				<div class="logo">
-					<a href="${pageContext.request.contextPath}"> <img
-						src="${pageContext.request.contextPath}/assets/images/main_menu/logo.png">
-					</a>
-				</div>
 				<p class="text-fontsname">회원가입</p>
-			</header>
-			<!-- header -->
-			
-			
 
-			<form id="joinForm"
-				action="${pageContext.request.contextPath}/user/join" method="post">
-
-				
 				<div class="form-group">
-					<label for="email" class="form-label" aria-hidden="true">
-						E-mail <span class="essential">필수 입력</span>
+					<label for="email" class="form-label" aria-hidden="true"> E-mail <span class="essential">필수 입력</span>
 					</label>
 					<div class="n-form-layer" id="emailFromLayer">
-						<input type="text" class="d-input" tabindex="0" id="email"
-							name="email" placeholder="E-mail" autocomplete="off"
-							maxlength="50">
+						<input type="text" class="d-input" tabindex="0" id="email" name="email" placeholder="E-mail" autocomplete="off" maxlength="50">
 						<ul id="emailDomainList" class="layer">
 							<li>
 								<button type="button">
@@ -85,14 +71,11 @@
 						<p id="hLayeremail" class="n-validation"></p>
 					</div>
 				</div>
-				
+
 				<!-- join form -->
 				<div class="form-group">
-					<label for="userId" class="form-label" aria-hidden="true">
-						ID <span class="essential">필수 입력</span>
-					</label> <input type="text" class="d-input" tabindex="0" id="userId"
-						name="userId" placeholder="ID 입력(5~11자)" autocomplete="off"
-						maxlength="11">
+					<label for="userId" class="form-label" aria-hidden="true"> ID <span class="essential">필수 입력</span>
+					</label> <input type="text" class="d-input" tabindex="0" id="userId" name="userId" placeholder="ID 입력(5~11자)" autocomplete="off" maxlength="11">
 					<p class="n-validation" id="hLayerid">
 
 						<!-- 아이디 사용 가능 여부 -->
@@ -101,11 +84,8 @@
 				</div>
 
 				<div class="form-group pass">
-					<label for="password" class="form-label" aria-hidden="true">
-						Password <span class="essential">필수 입력</span>
-					</label> <input type="password" class="d-input" tabindex="0" id="password"
-						name="password" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)"
-						autocomplete="off">
+					<label for="password" class="form-label" aria-hidden="true"> Password <span class="essential">필수 입력</span>
+					</label> <input type="password" class="d-input" tabindex="0" id="password" name="password" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)" autocomplete="off">
 					<p class="n-validation" id="passwordValiMessage">
 
 						<!-- 패스워드 안내문 -->
@@ -114,20 +94,15 @@
 				</div>
 
 				<div class="form-group pass">
-					<input type="password" class="d-input" tabindex="0"
-						id="confirmPassword" name="confirmPassword" placeholder="비밀번호 확인"
-						autocomplete="new-password">
+					<input type="password" class="d-input" tabindex="0" id="confirmPassword" name="confirmPassword" placeholder="비밀번호 확인" autocomplete="new-password">
 					<p class="n-validation" id="passwordConfirmValiMessage">
 						<!-- 비밀번호 확인 안내문 -->
 					</p>
 				</div>
 
 				<div class="form-group">
-					<label for="nickName" class="form-label" aria-hidden="true">
-						닉네임 <span class="essential">필수 입력</span>
-					</label> <input type="text" class="d-input" tabindex="0" id="joinNickName"
-						name="nickName" placeholder="닉네임" autocomplete="off"
-						maxlength="50">
+					<label for="nickName" class="form-label" aria-hidden="true"> 닉네임 <span class="essential">필수 입력</span>
+					</label> <input type="text" class="d-input" tabindex="0" id="joinNickName" name="nickName" placeholder="닉네임" autocomplete="off" maxlength="50">
 					<p id="nickNameValiMessage" class="n-validation">
 						<!-- 닉네임 확인 안내문 -->
 					</p>
@@ -135,39 +110,33 @@
 
 
 				<div class="form-group">
-					<label for="info__birth" class="form-label" aria-hidden="true">
-						생년월일 <span class="essential">필수 입력</span>
+					<label for="info__birth" class="form-label" aria-hidden="true"> 생년월일 <span class="essential">필수 입력</span>
 					</label>
 					<div class="info" id="info__birth">
-						<input type="text" class="d-input" tabindex="0" id="birth_year"
-							name="bYear" placeholder="Year" autocomplete="off"
-							maxlength="50">
-						<input type="text" class="d-input" tabindex="0" id="birth_month"
-							name="bMon" placeholder="Month" autocomplete="off"
-							maxlength="50">
-						<input type="text" class="d-input" tabindex="0" id="birth_day"
-							name="bDay" placeholder="Day" autocomplete="off"
-							maxlength="50">
+						<input type="text" class="d-input" tabindex="0" id="birth_year" name="bYear" placeholder="Year" autocomplete="off" maxlength="50"> <input
+							type="text" class="d-input" tabindex="0" id="birth_month" name="bMon" placeholder="Month" autocomplete="off" maxlength="50"> <input
+							type="text" class="d-input" tabindex="0" id="birth_day" name="bDay" placeholder="Day" autocomplete="off" maxlength="50">
 					</div>
 					<p class="n-validation" id="birthValiMessage">
 
 						<!-- 생년월 안내문 -->
 
-					</p>					
+					</p>
 				</div>
 
 				<!-- 약관 동의 -->
 				<div id="agreementDivArea">
 
-					<label for="chk-agree" class="form-label" aria-hidden="true">
-						약관 동의 <span class="essential">필수 입력</span>
-					</label> <br> <input type="checkbox" id="chk-agree" value="" name="">
-					<label for="chk-agree">서비스 약관에 동의합니다.</label>
+					<label for="chk-agree" class="form-label" aria-hidden="true"> 약관 동의 <span class="essential">필수 입력</span>
+					</label>
+					<div class="chk_agree">
+						<input type="checkbox" id="chk-agree" value="" name=""> <label for="chk-agree">서비스 약관에 동의합니다.</label>
+					</div>
 				</div>
 				<br>
 				<!-- submit -->
 				<div id="joinBtnDiv">
-					<button type="submit" id="joinBtn" class="d-btn btn-primary">회원가입</button>
+					<button type="submit" id="joinBtn">회원가입</button>
 				</div>
 
 

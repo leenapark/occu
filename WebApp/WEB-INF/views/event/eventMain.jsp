@@ -23,15 +23,19 @@
 
 
 		<div class="main">
+
 			<div class="event_container">
 				<div class="form_header">
-					<a href="${pageContext.request.contextPath }/index"><i class="bi bi-backspace-fill"></i></a> <span class="form_title">이벤트 계정</span> <a href="${pageContext.request.contextPath}/event/form"
-						class="save">폼 등록하기</a>
+					<a href="${pageContext.request.contextPath }/index"><i class="bi bi-backspace-fill"></i></a>
+					<span class="form_title">이벤트 계정</span>
+					<a href="${pageContext.request.contextPath}/event/form" class="save">폼 등록하기</a>
 				</div>
 				<p class="month"></p>
 				<div class="seller_list">
 					<div class="seller_info">
-						<a class="seller_img"><img alt="" src=""></a> <span class="seller_name"></span> <span class="seller_type"></span>
+						<a class="seller_img"><img alt="" src=""></a> 
+						<span class="seller_name"></span>
+						<span class="seller_type"></span>
 					</div>
 					<div class="seller_posts">
 						<a class="selling_post"></a> <a class="selling_post"></a>

@@ -18,7 +18,33 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // contentTextarea와 imageInput의 입력 내용을 모니터링하여 버튼 활성화/비활성화
-  contentTextarea.addEventListener("input", checkInputs);
-  imageInput.addEventListener("change", checkInputs);
-});
+  //contentTextarea.addEventListener("input", checkInputs);
+ // imageInput.addEventListener("change", checkInputs);
+
+// contentTextarea와 imageInput의 입력 내용을 모니터링하여 버튼 활성화/비활성화
+        contentTextarea.addEventListener("input", checkInputs);
+        imageInput.addEventListener("change", function (event) {
+            checkInputs();
+            previewImage(event);
+        });
+
+        // 미리보기 이미지
+        function previewImage(event) {
+            const fileInput = event.target;
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                previewImage.src = "#";
+                previewImage.style.display = "none";
+            }
+        }
+    });
+
+
+
 
