@@ -19,10 +19,11 @@ body{
 }
 
 .container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 45%;
+    display: flex;
 }
 form.login_form {
   background: rgba(255, 255, 255, 0.3);
@@ -171,4 +172,14 @@ select:focus,
 textarea:focus,
 button:focus {
   outline: none;
+}
+
+/* logo video */
+
+.logo_mp4 {
+	margin: 100px 40px;
+}
+
+.logo_mp4 video {
+	width: 320px;
 }

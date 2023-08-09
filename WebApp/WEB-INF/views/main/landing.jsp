@@ -22,7 +22,9 @@
 	<div class="container">
 
 			<div class="logo_mp4">
-				<img alt="" src="${pageContext.request.contextPath}/assets/upload/occu_logo.gif">
+<%-- 				<img alt="" src="${pageContext.request.contextPath}/assets/images/upload/occu_logo.gif"> --%>
+					<video src="${pageContext.request.contextPath}/assets/images/upload/occu_logo.mp4" muted="muted" autoplay="autoplay" loop="loop">
+					</video>
 			</div>
 			
 			<!-- loginbox -->
