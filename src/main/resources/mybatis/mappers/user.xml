@@ -25,7 +25,7 @@
 	</select>
 	
 	<!-- login -->
-	<select id="login" resultType="UserVo">
+	<select id="login" parameterType="UserVo" resultType="UserVo">
 		<![CDATA[
 			SELECT	userNo,
 					userId,

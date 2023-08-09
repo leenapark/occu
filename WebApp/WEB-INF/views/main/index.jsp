@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,148 +20,84 @@
 </head>
 <body>
 	<div id="wrap">
+
+		<!-- header -->
+		<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 		
 		<!-- header -->
-    	<header>
-    		<div class="container">
-				<nav class="main_nav">
-	    			<div class="logo">
-	    				<a href="${pageContext.request.contextPath }/home">
-	    					<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/logo_icon.png">
-	    				</a>
-	    			</div>
-    			
-
-					<ul>
-						<li>
-							<a href="${pageContext.request.contextPath }/home">
-								<div class="home">
-									<img alt="home" src="${pageContext.request.contextPath }/assets/images/main_menu/home_icon.png">
-									<span>
-										HOME
-									</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="${pageContext.request.contextPath }/search">
-								<div class="search">
-									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/search_icon.png">
-									<span>
-										SEARCH
-									</span>
-								
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="${pageContext.request.contextPath }/dm">
-								<div class="dm">
-									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/dm_icon.png">
-									<span>
-										CCUCHAT
-									</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="${pageContext.request.contextPath }/event">
-								<div class="event">
-									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/event_icon.png">
-									<span>
-										EVENT
-									</span>
-								</div>
-							</a>
-						</li>
-
-						<li>
-							<a href="${pageContext.request.contextPath }/profile">
-								<div class="profile">
-									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/profile_icon.png">
-									<span>
-										PROFILE
-									</span>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="${pageContext.request.contextPath }/settings">
-								<div class="settings">
-									<img alt="" src="${pageContext.request.contextPath }/assets/images/main_menu/settings_icon.png">
-									<span>
-										SETTINGS
-									</span>
-								</div>
-							</a>
-						</li>
-						
-					</ul>
-
-				</nav>
+		<div class="main">
+			<div id="feedArea">
+				<c:import url="/WEB-INF/views/main/postForm.jsp"></c:import>
+				<c:import url="/WEB-INF/views/main/timeline.jsp"></c:import>
 			</div>
-    	</header>
-    	
-    <!-- header -->
-	<div class="main"> 
-	  <div id="feedArea">
-	       <jsp:include page="/WEB-INF/views/main/postForm.jsp"/>
-	       <jsp:include page="/WEB-INF/views/main/timeline.jsp"/>
-	  </div>
-	
-	</div>
-	<div class="side_right"> </div>
-		
 
+		</div>
+		<div class="side_right"> 
+			<h1>추천 팔로워</h1>
+		<ul id="userInfo"></ul>
+	</div>
 	</div>
 
 </body>
+<script>
 
-<script type="text/javascript">
-	const fastapi = (operation, url, params, success_callback, failure_callback) => {
-    let method = operation
-    let content_type = 'application/json'
-    let body = JSON.stringify(params)
+	let follow_dict = [];
 
-    let _url = 'http://43.201.254.244:8000/'+url
-    if(method === 'post') {
-        _url += "?" + new URLSearchParams(params)
-    }
+		
+	function get_recommend_list() {
+		const ul = document.getElementById('userInfo');
+		const list = document.createDocumentFragment();
+		const images = [
+		    "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png"
+		];
+	    fetch("http://43.201.254.244:8000/api/recommend/recommend").then(response => {
+	    	response.json().then(data => {
+	    		follow_dict = data;
+	    		console.log(follow_dict);
+	    		follow_dict.map(function(follow){
+	    			const li = document.createElement('li');
+	    			const tweeterId = document.createElement('span');
+	    			const tweeterNick = document.createElement('h2');
+	    			const followBtn = document.createElement('a');
+	    			
+	    			var chosenImage = images[Math.floor(Math.random() * images.length)];
+	    			console.log(chosenImage)
+	    			const bgImage = document.createElement('img');
+	    			const link_addr = '${pageContext.request.contextPath}/assets/images/profile/rec_follower_prfs/' + chosenImage;
+	    			console.log(link_addr);
+	    			bgImage.src = link_addr;
+	    			console.log(bgImage.src)
 
-    let options = {
-        method: method,
-        headers: {
-            "Content-Type": content_type
-        }
-    }
+	    			tweeterId.textContent = "@" + follow.tweeterIdList;
+	    			console.log(tweeterId);
+	    			tweeterNick.textContent = follow.tweeterNickList;
+	    			console.log(tweeterNick);
+	    			followBtn.textContent = "<팔로우>";
+					
+	    			li.appendChild(bgImage);
+	    			li.appendChild(tweeterNick);
+	    			li.appendChild(tweeterId);
+	    			console.log(li);
+	    			li.appendChild(followBtn);
+	    			
 
-    if (method !== 'post') {
-        options['body'] = body
-    }
+	    			list.appendChild(li);
+	    			console.log("list: " + list)
+	    			
+	    	    	ul.appendChild(list);
+	    		    console.log(ul);
+	    			
+	    		});
 
-    fetch(_url, options)
-        .then(response => {
-            response.json()
-                .then(json => {
-                    if(response.status >= 200 && response.status < 300) {  // 200 ~ 299
-                        if(success_callback) {
-                            success_callback(json)
-                        }
-                    }else {
-                        if (failure_callback) {
-                            failure_callback(json)
-                        }else {
-                            alert(JSON.stringify(json))
-                        }
-                    }
-                })
-                .catch(error => {
-                    alert(JSON.stringify(error))
-                })
-        })
-	}
+
+	    	})
+
+	    })
+	   
+	};
 	
-	export default fastapi
-
+	get_recommend_list();
+	
 </script>
+
 </html>

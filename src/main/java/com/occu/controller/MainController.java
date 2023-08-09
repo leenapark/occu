@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,6 +28,7 @@ public class MainController {
 		
 
 		@RequestMapping("/home")
+		@CrossOrigin(origins = "*", allowedHeaders = "*")
 		public String index() {
 			System.out.println("home");
 			return "main/index";
