@@ -34,8 +34,9 @@
 		</div>
 		<div class="side_right"> 
 			<h1>추천 팔로워</h1>
-		<ul id="userInfo"></ul>
-	</div>
+			<br>
+			<ul id="userInfo"></ul>
+		</div>
 	</div>
 
 </body>
@@ -58,7 +59,7 @@
 	    			const li = document.createElement('li');
 	    			const tweeterId = document.createElement('span');
 	    			const tweeterNick = document.createElement('h2');
-	    			const followBtn = document.createElement('a');
+	    			const followBtn = document.createElement('div');
 	    			
 	    			var chosenImage = images[Math.floor(Math.random() * images.length)];
 	    			console.log(chosenImage)
@@ -72,13 +73,13 @@
 	    			console.log(tweeterId);
 	    			tweeterNick.textContent = follow.tweeterNickList;
 	    			console.log(tweeterNick);
-	    			followBtn.textContent = "<팔로우>";
+	    			followBtn.textContent = "팔로우";
 					
-	    			li.appendChild(bgImage);
+	    			li.appendChild(bgImage); 	 
+		  			li.appendChild(followBtn);
 	    			li.appendChild(tweeterNick);
 	    			li.appendChild(tweeterId);
 	    			console.log(li);
-	    			li.appendChild(followBtn);
 	    			
 
 	    			list.appendChild(li);
