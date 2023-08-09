@@ -156,9 +156,10 @@
 					<label for="chk-agree" class="form-label" aria-hidden="true">
 						약관 동의 <span class="essential">필수 입력</span>
 					</label> 
-					
-					<input type="checkbox" id="chk-agree" value="" name="">
-					<label for="chk-agree">서비스 약관에 동의합니다.</label>
+					<div class="chk_agree">
+						<input type="checkbox" id="chk-agree" value="" name="">
+						<label for="chk-agree">서비스 약관에 동의합니다.</label>	
+					</div>
 				</div>
 				<br>
 				<!-- submit -->

@@ -31,7 +31,7 @@
 			<div class="detail_top">
 				<div class="detail_profile p-0">
 					<a class="" href="${pageContext.request.contextPath}/profile">
-						<!-- 임시이미지 --> <img class="profile_img"
+						<!-- 임시이미지 --> <img class="profile_img p-0"
 						src="${pageContext.request.contextPath}/assets/images/profile/${post.profileImg}"
 						alt="profile image">
 					</a>
