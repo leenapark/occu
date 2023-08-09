@@ -13,7 +13,7 @@
 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-
+	
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/user.css"
 	type="text/css">
@@ -24,28 +24,22 @@
 
 <body>
 	<div id="wrap">
-		<h1 class="n-hidden">O'CCU 회원가입</h1>
+		<div class="box">
+	        <div class="square" style="--i:0;"></div>
+	        <div class="square" style="--i:1;"></div>
+	        <div class="square" style="--i:2;"></div>
+	        <div class="square" style="--i:3;"></div>
+	        <div class="square" style="--i:4;"></div>
+	        <div class="square" style="--i:5;"></div>     
+        </div>
+		
 
 		<div class="form-area user">
-
-
-			<!-- header -->
-			<header class="user-header">
-
-				<div class="logo">
-					<a href="${pageContext.request.contextPath}"> <img
-						src="${pageContext.request.contextPath}/assets/images/main_menu/logo_icon.png">
-					</a>
-				</div>
-				<p class="text-fontsname">회원가입</p>
-			</header>
-			<!-- header -->
-			
-			
 
 			<form id="joinForm"
 				action="${pageContext.request.contextPath}/user/join" method="post">
 
+				<p class="text-fontsname">회원가입</p>
 				
 				<div class="form-group">
 					<label for="email" class="form-label" aria-hidden="true">
@@ -161,13 +155,15 @@
 
 					<label for="chk-agree" class="form-label" aria-hidden="true">
 						약관 동의 <span class="essential">필수 입력</span>
-					</label> <br> <input type="checkbox" id="chk-agree" value="" name="">
+					</label> 
+					
+					<input type="checkbox" id="chk-agree" value="" name="">
 					<label for="chk-agree">서비스 약관에 동의합니다.</label>
 				</div>
 				<br>
 				<!-- submit -->
 				<div id="joinBtnDiv">
-					<button type="submit" id="joinBtn" class="d-btn btn-primary">회원가입</button>
+					<button type="submit" id="joinBtn" >회원가입</button>
 				</div>
 
 

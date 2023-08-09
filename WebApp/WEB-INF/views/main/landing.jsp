@@ -27,7 +27,7 @@
 			<div class="loginbox">
 					
 				<form class="login_form" name="loginForm" action="${pageContext.request.contextPath}/login">
-					<p>LOGIN</p>	
+					<p>O'CCU</p>	
 					<span class="id"> 
 						<input type="text" name="email" class="inputbox" placeholder="E-mail를 입력해주세요">
 					</span> 

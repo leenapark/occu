@@ -59,6 +59,7 @@
 	            u.profileImg
 	        FROM posts p, users u
 	        WHERE p.postNo = #{postNo}
+	        AND p.userNo = u.userNo
 	    ]]>
 	</select>
 
