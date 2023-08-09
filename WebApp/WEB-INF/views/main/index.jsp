@@ -22,6 +22,9 @@
 
 <script src="${pageContext.request.contextPath }/assets/js/main/button.js"></script>
 <script src="${pageContext.request.contextPath }/assets/js/main/post.js"></script>
+<script src="${pageContext.request.contextPath }/assets/js/ml/ml.js"></script>
+
+
 
 </head>
 <body>
@@ -38,8 +41,13 @@
 			</div>
 
 		</div>
-		<div class="side_right"></div>
+		<div class="side_right">
+			<h1>추천 팔로워</h1>
+			<br>
+			<ul id="userInfo"></ul>
+		</div>
 	</div>
 
 </body>
 </html>
+

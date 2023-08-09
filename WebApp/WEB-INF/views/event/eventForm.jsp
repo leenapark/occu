@@ -331,7 +331,7 @@
 							        document.querySelector('#limitMaxCount0').value = null;
 							        document.querySelector('#limitMaxCount0').disabled = true;
 							        document.querySelector('#goodsName').focus();
-							        document.querySelector('.goodsAddComponent #btn').classList.remove('active');
+							        document.querySelector('.goodsAddComponefnt #btn').classList.remove('active');
 							    }
 							
 							    //상품등록버튼 활성화
@@ -783,7 +783,7 @@
 	
 						<div class="saveComponent">
 							<div class="con">
-								<button id="formButton" class="Save">폼만들기</button>
+								<button id="formButton" class="save">폼만들기</button>
 							</div>
 						</div>
 						
