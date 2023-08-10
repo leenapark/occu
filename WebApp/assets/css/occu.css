@@ -49,11 +49,10 @@ div.main {
    margin: 0;
 }
 
-div.side_right {
-   border: 1px solid #ccc;
+div.side_right { 
    width: 24%;
    margin-right: 0;
-   height: 300px;
+
 }
 
 .home, .search, .dm, .event, .profile, .settings{

@@ -18,17 +18,13 @@
 				  <div class="post_box">
 				  	  
     				  
-					  <textarea name="content" id="content" placeholder="what is happening?">
-					  	
-					  </textarea>
-					  <!-- 미리보기 이미지를 표시할 img 요소 -->
-   							 <img id="previewImage" src="#" alt="미리보기 이미지" style="max-width: 100%; display: none;">
+					  <textarea name="content" id="content" placeholder="what is happening?"></textarea>
 					  <label for="imageInput">
 					  <div class="file_img">
 					  	<i class="fi fi-rr-picture"></i>
 					  </div>
 					  </label>
-					  <input type="file" name="fileImg" id="imageInput" accept="image/*" onchange="previewImage(event)">
+					  <input type="file" name="fileImg" id="imageInput">
 				  </div>
 				  <div class="area_btn">
 					  <button id="postButton" class="custom-btn btn-2" type="submit" disabled>CCU</button>

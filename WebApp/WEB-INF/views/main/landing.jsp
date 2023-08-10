@@ -19,9 +19,21 @@
 
 </head>
 <body>
-	<div class="container">
 
-		
+		<div class="landing_wrap">
+			
+			
+	
+			<div class="logo_mp4">
+<%-- 				<img alt="" src="${pageContext.request.contextPath}/assets/images/upload/occu_logo.gif"> --%>
+					<video src="${pageContext.request.contextPath}/assets/images/upload/occu_logo.mp4" muted="muted" autoplay="autoplay" loop="loop">
+					</video>
+			</div>
+			
+	<div class="container">
+	
+
+			
 			
 			<!-- loginbox -->
 			<div class="loginbox">
@@ -80,5 +92,7 @@
 			    <div class="drop drop-5"></div>
 			  </div>
 
+	</div>
+	
 	</div>
 </body>
