@@ -45,7 +45,8 @@
   - numpy
   - Pandas
   - joblib
- 
+
+![O_CCU_3차_프로젝트_보고서_페이지_01](https://github.com/leenapark/occu/assets/74292378/775ba401-e128-4deb-9fb8-6e6108f995cb)
 ![O_CCU_3차_프로젝트_보고서_페이지_06](https://github.com/leenapark/occu/assets/74292378/26800113-a562-4495-9e48-61dab97f3c0b)
 ![O_CCU_3차_프로젝트_보고서_페이지_09](https://github.com/leenapark/occu/assets/74292378/ed06c4f8-ea85-4206-8aa6-7f6ef0fe6b6c)
 ![O_CCU_3차_프로젝트_보고서_페이지_10](https://github.com/leenapark/occu/assets/74292378/b388ad6d-1318-479a-8baf-193505eb1562)
