@@ -26,7 +26,10 @@
 
 #### 개발 환경
 - 언어
-  - Java (JDK 1.8), Python 3.9, HTML/CSS, JavaScript
+  - Java (JDK 1.8)
+  - Python 3.9
+  - HTML/CSS
+  - JavaScript
 - 서버
   - Apache Tomcat 8.5
   - AWS Lightsail
